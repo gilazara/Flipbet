@@ -1,7 +1,8 @@
-import { useUserStore } from "@/features/user/store/useUserStore";
+import { Currency } from "@/common/types";
 
-const Balance = () => {
-  const { balance } = useUserStore();
+type UserBalanceProps = Record<Currency, number>;
+
+const UserBalance = ({ balance }: { balance: UserBalanceProps }) => {
   return (
     <div className="bg-gray-800 py-2 rounded-xl shadow-lg text-white space-y-2 mt-4">
       <h2 className="text-sm md:text-lg font-semibold text-amber-200">
@@ -29,4 +30,4 @@ const Balance = () => {
   );
 };
 
-export default Balance;
+export default UserBalance;

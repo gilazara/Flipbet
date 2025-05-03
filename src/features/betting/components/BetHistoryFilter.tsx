@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { OutcomeType } from "@/features/betting/types";
 
-type Props = {
+type BetHistoryFilterProps = {
   filterOutcome: OutcomeType;
   setFilterOutcome: Dispatch<SetStateAction<OutcomeType>>;
   exactAmount: number;
@@ -13,7 +13,7 @@ export const BetHistoryFilter = ({
   setFilterOutcome,
   exactAmount,
   setExactAmount,
-}: Props) => {
+}: BetHistoryFilterProps) => {
   return (
     <div className="flex flex-col md:flex-row gap-2 mb-4">
       <select

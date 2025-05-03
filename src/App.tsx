@@ -1,4 +1,4 @@
-import CoinFlipForm from "@/features/betting/components";
+import BettingForm from "@/features/betting/components";
 import UserDetails from "@/features/user/components";
 import BetHistoryList from "@/features/betting/components/BetHistoryList";
 import BettingAnimation from "@/features/betting/components/BettingAnimation";
@@ -11,7 +11,7 @@ export default function App() {
         🎰 Crypto Bet Simulator
       </h1>
       <UserDetails />
-      <CoinFlipForm />
+      <BettingForm />
       <BetHistoryList />
     </div>
   );

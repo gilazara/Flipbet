@@ -1,10 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { getUser } from "@/features/user/services/fetchUser";
+import { getUser } from "@/features/user/services/getUser";
 
 export const useUser = () => {
-  return useQuery({
-    queryKey: ["user"],
+  const query = useQuery({
+    queryKey: ["user-details"],
     queryFn: getUser,
-    staleTime: 300,
   });
+
+  return {
+    ...query,
+    isRefreshing: query.isFetching,
+  };
 };
