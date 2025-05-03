@@ -16,7 +16,7 @@ export const useBetSimulation = () => {
     stopWin,
     stopLoss,
     betHistory,
-    setAmount,
+    setBetAmount,
   } = useBetStore();
 
   const { setBalance, balance } = useUserStore();
@@ -43,12 +43,12 @@ export const useBetSimulation = () => {
         return acc + val;
       }, 0) + profit;
 
-    if (stopLoss && newTotalProfit <= -stopLoss) {
+    if (Number(stopLoss) && newTotalProfit <= -Number(stopLoss)) {
       alert("🛑 Stop Loss reached.");
       return;
     }
 
-    if (stopWin && newTotalProfit >= stopWin) {
+    if (Number(stopWin) && newTotalProfit >= Number(stopWin)) {
       alert("✅ Stop Win reached.");
       return;
     }
@@ -58,7 +58,7 @@ export const useBetSimulation = () => {
       martingaleEnabled &&
       balance[selectedCurrency as Currency] >= amount * 4
     ) {
-      setAmount(String(amount * 2));
+      setBetAmount(String(amount * 2));
       await placeBet(amount * 2, newTotalProfit);
     }
   };

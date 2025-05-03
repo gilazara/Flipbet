@@ -6,18 +6,18 @@ type State = {
   selectedCurrency: string;
   betHistory: Bet[];
   martingaleEnabled: boolean;
-  stopWin: number;
-  stopLoss: number;
-  amount: string;
+  stopWin: string;
+  stopLoss: string;
+  betAmount: string;
 };
 
 type Actions = {
   setSelectedCurrency: (currency: string) => void;
   addBet: (bet: Bet) => void;
   setMartingaleEnabled: (value: boolean) => void;
-  setStopWin: (value: number) => void;
-  setStopLoss: (value: number) => void;
-  setAmount: (value: string) => void;
+  setStopWin: (value: string) => void;
+  setStopLoss: (value: string) => void;
+  setBetAmount: (value: string) => void;
   reset: () => void;
 };
 
@@ -27,9 +27,9 @@ export const useBetStore = create<State & Actions>()(
       selectedCurrency: "BTC",
       betHistory: [],
       martingaleEnabled: false,
-      stopWin: 0,
-      stopLoss: 0,
-      amount: "10",
+      stopWin: "0",
+      stopLoss: "0",
+      betAmount: "10",
       setSelectedCurrency: (currency) => set({ selectedCurrency: currency }),
       addBet: (bet) =>
         set((state) => ({
@@ -38,15 +38,15 @@ export const useBetStore = create<State & Actions>()(
       setMartingaleEnabled: (value) => set({ martingaleEnabled: value }),
       setStopWin: (value) => set({ stopWin: value }),
       setStopLoss: (value) => set({ stopLoss: value }),
-      setAmount: (value) => set({ amount: value }),
+      setBetAmount: (value) => set({ betAmount: value }),
       reset: () =>
         set({
           selectedCurrency: "BTC",
           betHistory: [],
           martingaleEnabled: false,
-          stopWin: 0,
-          stopLoss: 0,
-          amount: "0",
+          stopWin: "0",
+          stopLoss: "0",
+          betAmount: "0",
         }),
     }),
     { name: "bet-store" }

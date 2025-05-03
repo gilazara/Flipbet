@@ -8,8 +8,12 @@ const BettingForm = () => {
   const queryClient = useQueryClient();
 
   const {
-    amount,
-    setAmount,
+    betAmount,
+    setBetAmount,
+    setStopLoss,
+    setStopWin,
+    stopLoss,
+    stopWin,
     selectedCurrency,
     martingaleEnabled,
     setSelectedCurrency,
@@ -20,14 +24,14 @@ const BettingForm = () => {
   const { mutate, isPending } = useBetSimulation();
 
   const isSubmittable =
-    Number(amount) > 0 &&
-    Number(amount) <= balance[selectedCurrency as Currency];
+    Number(betAmount) > 0 &&
+    Number(betAmount) <= balance[selectedCurrency as Currency];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (isSubmittable && !isPending) {
-      mutate(Number(amount), {
+      mutate(Number(betAmount), {
         onSuccess: () => {
           queryClient.invalidateQueries({
             queryKey: ["user-details"],
@@ -56,9 +60,9 @@ const BettingForm = () => {
       </select>
 
       <input
-        value={amount}
+        value={betAmount}
         type="string"
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={(e) => setBetAmount(e.target.value)}
         className="p-2 bg-gray-800 rounded w-full"
       />
 
@@ -71,6 +75,25 @@ const BettingForm = () => {
         Use Martingale Strategy
       </label>
 
+      <div className="flex gap-4">
+        <div className="flex flex-col w-full">
+          <label className="text-sm text-white mb-1">Stop Win</label>
+          <input
+            value={stopWin}
+            onChange={(e) => setStopWin(e.target.value)}
+            className="p-2 bg-gray-800 rounded w-full"
+          />
+        </div>
+        <div className="flex flex-col w-full">
+          <label className="text-sm text-white mb-1">Stop Loss</label>
+          <input
+            value={stopLoss}
+            onChange={(e) => setStopLoss(e.target.value)}
+            className="p-2 bg-gray-800 rounded w-full"
+          />
+        </div>
+      </div>
+
       <button
         type="submit"
         disabled={isPending || !isSubmittable}
@@ -80,7 +103,7 @@ const BettingForm = () => {
       >
         {isPending ? "Flipping..." : "Bet"}
       </button>
-      {!isSubmittable && amount && (
+      {!isSubmittable && betAmount && (
         <p className="bg-red-100 text-red-700 text-sm px-3 py-2 rounded mt-1">
           ❌ You can't place this bet. Please enter a valid amount within your
           balance.
