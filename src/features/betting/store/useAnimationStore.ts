@@ -1,4 +1,3 @@
-// store/useAnimationStore.ts
 import { create } from "zustand";
 
 export type AnimationType = "win" | "lose" | null;

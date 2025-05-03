@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useBetSimulation } from "@/hooks/useBetSimulation";
+import { useBetSimulation } from "@/features/betting/hooks/useBetSimulation";
 import classNames from "classnames";
-import { useUserStore } from "@/store/useUserStore";
-import { useBetStore } from "@/store/useBetStore";
-import { Currency } from "@/types";
+import { useBetStore } from "@/features/betting/store/useBetStore";
+import { useUserStore } from "@/features/user/store/useUserStore";
+import { Currency } from "@/common/types";
 
 const CoinFlipForm = () => {
   const [amount, setAmount] = useState(100);

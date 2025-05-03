@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-
-export type OutcomeType = "all" | "win" | "loss";
+import { OutcomeType } from "@/features/betting/types";
 
 type Props = {
   filterOutcome: OutcomeType;

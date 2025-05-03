@@ -1,7 +1,7 @@
-import BetStatistics from "../BetStatistics";
-import Loader from "../UI/Loader";
+import UserStats from "./UserStats";
+import Loader from "@/common/components/Loader";
 import Balance from "./Balance";
-import { useUser } from "./useUser";
+import { useUser } from "@/features/user/hooks/useUser";
 
 const UserDetails = () => {
   const { data: user, isLoading } = useUser();
@@ -23,7 +23,7 @@ const UserDetails = () => {
             </>
           )}
         </div>
-        {!isLoading && <BetStatistics />}
+        {!isLoading && <UserStats />}
       </div>
     </>
   );

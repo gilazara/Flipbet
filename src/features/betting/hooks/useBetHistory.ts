@@ -1,4 +1,4 @@
-import { useBetStore } from "@/store/useBetStore";
+import { useBetStore } from "@/features/betting/store/useBetStore";
 
 export const useBetHistory = () => {
   const { betHistory } = useBetStore();

@@ -1,6 +1,6 @@
-import { useBetHistory } from "@/hooks/useBetHistory";
+import { useBetHistory } from "@/features/betting/hooks/useBetHistory";
 
-const BetStatistics = () => {
+const UserStats = () => {
   const { wins, losses, profit, biggestLoss, biggestWin, totalBets } =
     useBetHistory();
 
@@ -22,4 +22,4 @@ const BetStatistics = () => {
   );
 };
 
-export default BetStatistics;
+export default UserStats;

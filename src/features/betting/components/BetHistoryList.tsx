@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useDebounce } from "@/hooks/useDebounce";
-import { useBetHistory } from "@/hooks/useBetHistory";
-import { BetHistoryFilter, OutcomeType } from "./BetHistoryFilter";
+import { useDebounce } from "@/common/hooks/useDebounce";
+import { useBetHistory } from "@/features/betting/hooks/useBetHistory";
+import { BetHistoryFilter } from "./BetHistoryFilter";
+import { OutcomeType } from "@/features/betting/types";
 
 const BetHistoryList = () => {
   const { betHistory } = useBetHistory();

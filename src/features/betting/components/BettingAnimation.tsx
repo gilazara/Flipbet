@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useAnimationStore } from "@/store/useAnimationStore";
 import classNames from "classnames";
+import { useAnimationStore } from "@/features/betting/store/useAnimationStore";
 
-const ScreenAnimation = () => {
+const BettingAnimation = () => {
   const { animation, clearAnimation } = useAnimationStore();
 
   useEffect(() => {
@@ -31,4 +31,4 @@ const ScreenAnimation = () => {
   );
 };
 
-export default ScreenAnimation;
+export default BettingAnimation;

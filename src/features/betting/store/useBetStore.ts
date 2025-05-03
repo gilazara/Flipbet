@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { Bet } from "../types";
+import { Bet } from "@/common/types";
 
 type State = {
   selectedCurrency: string;

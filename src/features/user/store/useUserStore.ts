@@ -1,17 +1,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { Currency } from "../types";
-
-export type UserSettings = {
-  firstName: string;
-  lastName: string;
-  preferredCurrency: Currency;
-  balance: Record<Currency, number>;
-};
-
-type UserState = UserSettings & {
-  hasHydrated: boolean;
-};
+import { UserSettings, UserState } from "@/features/user/types";
+import { Currency } from "@/common/types";
 
 type UserActions = {
   setPreferredCurrency: (currency: Currency) => void;

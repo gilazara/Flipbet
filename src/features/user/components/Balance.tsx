@@ -1,4 +1,4 @@
-import { useUserStore } from "@/store/useUserStore";
+import { useUserStore } from "@/features/user/store/useUserStore";
 
 const Balance = () => {
   const { balance } = useUserStore();
