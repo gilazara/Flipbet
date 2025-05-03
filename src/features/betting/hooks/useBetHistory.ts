@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useBetStore } from "@/features/betting/store/useBetStore";
 
 export const useBetHistory = () => {
@@ -7,16 +8,23 @@ export const useBetHistory = () => {
     return acc + (bet.outcome === "win" ? bet.amount : -bet.amount);
   }, 0);
 
-  const biggestWin = Math.max(
-    ...betHistory.filter((bet) => bet.outcome === "win").map((el) => el.amount),
-    0
-  );
-  const biggestLoss = Math.max(
-    ...betHistory
-      .filter((bet) => bet.outcome === "lose")
-      .map((el) => el.amount),
-    0
-  );
+  const biggestWin = useMemo(() => {
+    return Math.max(
+      ...betHistory
+        .filter((bet) => bet.outcome === "win")
+        .map((el) => el.amount),
+      0
+    );
+  }, [betHistory]);
+
+  const biggestLoss = useMemo(() => {
+    return Math.max(
+      ...betHistory
+        .filter((bet) => bet.outcome === "lose")
+        .map((el) => el.amount),
+      0
+    );
+  }, [betHistory]);
 
   const totalBets = betHistory.length;
   const wins = betHistory.filter((bet) => bet.outcome === "win").length;

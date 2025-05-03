@@ -16,7 +16,6 @@ const CoinFlipForm = () => {
   } = useBetStore();
 
   const { balance } = useUserStore();
-
   const { mutate, isPending } = useBetSimulation();
 
   const isSubmittable =
