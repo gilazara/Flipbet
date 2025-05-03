@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useBetSimulation } from "@/features/betting/hooks/useBetSimulation";
 import { useBetStore } from "@/features/betting/store/useBetStore";
 import { useUserStore } from "@/features/user/store/useUserStore";
@@ -7,9 +6,10 @@ import { useQueryClient } from "@tanstack/react-query";
 
 const BettingForm = () => {
   const queryClient = useQueryClient();
-  const [amount, setAmount] = useState("10");
 
   const {
+    amount,
+    setAmount,
     selectedCurrency,
     martingaleEnabled,
     setSelectedCurrency,

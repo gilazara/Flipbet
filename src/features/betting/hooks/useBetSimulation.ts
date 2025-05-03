@@ -16,9 +16,10 @@ export const useBetSimulation = () => {
     stopWin,
     stopLoss,
     betHistory,
+    setAmount,
   } = useBetStore();
 
-  const { setBalance } = useUserStore();
+  const { setBalance, balance } = useUserStore();
   const { triggerAnimation } = useAnimationStore();
 
   const placeBet = async (amount: number, accProfit = 0) => {
@@ -43,7 +44,6 @@ export const useBetSimulation = () => {
       }, 0) + profit;
 
     if (stopLoss && newTotalProfit <= -stopLoss) {
-      console.log(accProfit);
       alert("🛑 Stop Loss reached.");
       return;
     }
@@ -53,7 +53,12 @@ export const useBetSimulation = () => {
       return;
     }
 
-    if (!isWin && martingaleEnabled) {
+    if (
+      !isWin &&
+      martingaleEnabled &&
+      balance[selectedCurrency as Currency] >= amount * 4
+    ) {
+      setAmount(String(amount * 2));
       await placeBet(amount * 2, newTotalProfit);
     }
   };
