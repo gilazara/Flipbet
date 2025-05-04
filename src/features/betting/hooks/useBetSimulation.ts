@@ -1,12 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
-import { flipCoin } from "@/features/betting/service/flipCoin";
-import { useBetStore } from "@/features/betting/store/useBetStore";
+import { flipCoin } from "@/features/betting/services/flipCoin";
+import { useBetStore } from "@/features/betting/stores/useBetStore";
 import { useUserStore } from "@/features/user/store/useUserStore";
 import { Currency } from "@/common/types";
 import {
   AnimationType,
   useAnimationStore,
-} from "@/features/betting/store/useAnimationStore";
+} from "@/features/betting/stores/useAnimationStore";
 
 export const useBetSimulation = () => {
   const {

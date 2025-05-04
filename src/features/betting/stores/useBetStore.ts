@@ -27,8 +27,8 @@ export const useBetStore = create<State & Actions>()(
       selectedCurrency: "BTC",
       betHistory: [],
       martingaleEnabled: false,
-      stopWin: "0",
-      stopLoss: "0",
+      stopWin: "",
+      stopLoss: "",
       betAmount: "10",
       setSelectedCurrency: (currency) => set({ selectedCurrency: currency }),
       addBet: (bet) =>

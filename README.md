@@ -7,7 +7,7 @@ Once the repository is cloned, navigate to the project directory and install the
 
 To make your imports cleaner, you can use the @ alias to reference your src folder. Here's how to configure it.
 
-Now, you're ready to run the application! Start the development server: npm run dev or yarn dev. This will start the local development server, and you can view the app in your browser
+Now, you're ready to run the application! Start the development server: npm run dev / yarn dev. This will start the local development server, and you can view the app in your browser
 
 # 🎲 Coin Flip Simulator
 

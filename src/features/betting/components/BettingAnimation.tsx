@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import classNames from "classnames";
-import { useAnimationStore } from "@/features/betting/store/useAnimationStore";
+import { useAnimationStore } from "@/features/betting/stores/useAnimationStore";
 
 const BettingAnimation = () => {
   const { animation, clearAnimation } = useAnimationStore();

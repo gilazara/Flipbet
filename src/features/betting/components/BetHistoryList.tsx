@@ -3,11 +3,12 @@ import { useDebounce } from "@/common/hooks/useDebounce";
 import { useBetHistory } from "@/features/betting/hooks/useBetHistory";
 import { BetHistoryFilter } from "./BetHistoryFilter";
 import { OutcomeType } from "@/features/betting/types";
+import classNames from "classnames";
 
 const BetHistoryList = () => {
   const { betHistory } = useBetHistory();
 
-  const [exactAmount, setExactAmount] = useState(0);
+  const [exactAmount, setExactAmount] = useState("");
   const [filterOutcome, setFilterOutcome] = useState<OutcomeType>("all");
 
   const debouncedExactAmount = useDebounce(exactAmount, 300);
@@ -19,8 +20,8 @@ const BetHistoryList = () => {
       filterOutcome === "all" || bet.outcome === filterOutcome;
 
     const amountMatch =
-      debouncedExactAmount === 0 ||
-      Number(bet.amount) === Number(debouncedExactAmount);
+      Number(debouncedExactAmount) === 0 ||
+      bet.amount === Number(debouncedExactAmount);
 
     return outcomeMatch && amountMatch;
   });
@@ -56,9 +57,10 @@ const BetHistoryList = () => {
                 <td>{bet.currency}</td>
                 <td>{bet.amount}</td>
                 <td
-                  className={
-                    bet.outcome === "win" ? "text-green-400" : "text-red-400"
-                  }
+                  className={classNames({
+                    "text-green-600/80": bet.outcome === "win",
+                    "text-red-600/80": bet.outcome !== "win",
+                  })}
                 >
                   {bet.outcome}
                 </td>

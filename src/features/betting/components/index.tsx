@@ -1,5 +1,5 @@
 import { useBetSimulation } from "@/features/betting/hooks/useBetSimulation";
-import { useBetStore } from "@/features/betting/store/useBetStore";
+import { useBetStore } from "@/features/betting/stores/useBetStore";
 import { useUserStore } from "@/features/user/store/useUserStore";
 import { Currency } from "@/common/types";
 import { useQueryClient } from "@tanstack/react-query";
@@ -35,7 +35,6 @@ const BettingForm = () => {
         onSuccess: () => {
           queryClient.invalidateQueries({
             queryKey: ["user-details"],
-            exact: true,
           });
         },
       });
@@ -60,10 +59,10 @@ const BettingForm = () => {
       </select>
 
       <input
+        type="text"
         value={betAmount}
-        type="string"
-        onChange={(e) => setBetAmount(e.target.value)}
         className="p-2 bg-gray-800 rounded w-full"
+        onChange={(e) => setBetAmount(e.target.value)}
       />
 
       <label className="flex items-center gap-2">
@@ -79,6 +78,7 @@ const BettingForm = () => {
         <div className="flex flex-col w-full">
           <label className="text-sm text-white mb-1">Stop Win</label>
           <input
+            type="text"
             value={stopWin}
             onChange={(e) => setStopWin(e.target.value)}
             className="p-2 bg-gray-800 rounded w-full"
@@ -87,6 +87,7 @@ const BettingForm = () => {
         <div className="flex flex-col w-full">
           <label className="text-sm text-white mb-1">Stop Loss</label>
           <input
+            type="text"
             value={stopLoss}
             onChange={(e) => setStopLoss(e.target.value)}
             className="p-2 bg-gray-800 rounded w-full"
@@ -97,7 +98,7 @@ const BettingForm = () => {
       <button
         type="submit"
         disabled={isPending || !isSubmittable}
-        className="bg-green-500 p-2 rounded w-full text-white transition-colors duration-200 
+        className="bg-green-500 p-2 font-semibold rounded w-full text-white transition-colors duration-200 
              hover:bg-green-600 cursor-pointer 
              disabled:bg-gray-600 disabled:text-gray-300 disabled:cursor-not-allowed"
       >

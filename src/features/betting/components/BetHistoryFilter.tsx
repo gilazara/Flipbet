@@ -4,8 +4,8 @@ import { OutcomeType } from "@/features/betting/types";
 type BetHistoryFilterProps = {
   filterOutcome: OutcomeType;
   setFilterOutcome: Dispatch<SetStateAction<OutcomeType>>;
-  exactAmount: number;
-  setExactAmount: Dispatch<SetStateAction<number>>;
+  exactAmount: string;
+  setExactAmount: Dispatch<SetStateAction<string>>;
 };
 
 export const BetHistoryFilter = ({
@@ -27,9 +27,9 @@ export const BetHistoryFilter = ({
       </select>
 
       <input
-        type="number"
-        value={exactAmount === 0 ? "" : exactAmount}
-        onChange={(e) => setExactAmount(Number(e.target.value) || 0)}
+        type="text"
+        value={exactAmount}
+        onChange={(e) => setExactAmount(e.target.value)}
         placeholder="Amount"
         className="bg-gray-700 p-2 rounded w-full text-sm"
       />
