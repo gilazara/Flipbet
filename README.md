@@ -1,7 +1,7 @@
 ## 🛠️ Prerequisities
 
 Before you begin, ensure that you have Node.js (v14 or higher) installed on your machine.
-Clone the project to your local machine using the following command: git clone https://github.com/your-username/coin-flip-simulator.git.
+Clone the project to your local machine using the following command: git clone https://github.com/gilazara/Flipbet?tab=readme-ov-file
 
 Once the repository is cloned, navigate to the project directory and install the required dependencies using npm or yarn: npm install / yarn add.
 
