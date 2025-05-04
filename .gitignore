@@ -19,10 +19,6 @@ node_modules/
 .env.production
 .env.development
 
-# Package lock files
-package-lock.json
-yarn.lock
-
 # TypeScript specific
 *.tsbuildinfo
 
